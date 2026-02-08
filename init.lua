@@ -1,3 +1,3 @@
-require("josean.core")
-require("josean.lazy")
-require("josean.lsp")
+require("thein3rovert.core")
+require("thein3rovert.lazy")
+require("thein3rovert.lsp")
