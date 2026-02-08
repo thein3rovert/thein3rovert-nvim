@@ -38,6 +38,20 @@ return {
         colors.fg_gutter = fg_gutter
         colors.fg_sidebar = fg_dark
       end,
+      on_highlights = function(hl, c)
+        -- Git signs - bright and visible colors
+        hl.GitSignsAdd = { fg = "#73daca" }      -- green
+        hl.GitSignsChange = { fg = "#7aa2f7" }   -- blue
+        hl.GitSignsDelete = { fg = "#f7768e" }   -- red
+
+        -- NvimTree git colors
+        hl.NvimTreeGitDirty = { fg = "#e0af68" }    -- yellow/orange
+        hl.NvimTreeGitStaged = { fg = "#73daca" }   -- green
+        hl.NvimTreeGitNew = { fg = "#73daca" }      -- green
+        hl.NvimTreeGitDeleted = { fg = "#f7768e" }  -- red
+        hl.NvimTreeGitRenamed = { fg = "#7aa2f7" }  -- blue
+        hl.NvimTreeGitIgnored = { fg = "#565f89" }  -- gray
+      end,
     })
 
     vim.cmd("colorscheme tokyonight")
