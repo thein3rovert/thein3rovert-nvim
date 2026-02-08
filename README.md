@@ -16,6 +16,7 @@ This is a custom Neovim configuration based on the Josean Martinez setup, optimi
 ## Overview
 
 This configuration uses:
+
 - **Plugin Manager**: [lazy.nvim](https://github.com/folke/lazy.nvim)
 - **LSP**: Native Neovim LSP with Mason for server management
 - **Completion**: nvim-cmp with multiple sources
@@ -26,7 +27,8 @@ This configuration uses:
 
 ## Key Features
 
-- **Web Development**: Full support for TypeScript, React, Vue, Svelte, HTML, CSS, Tailwind
+**Web Development**: Full support for TypeScript, React, Vue, Svelte, HTML, CSS, Tailwind
+
 - **Python Development**: Black formatter, pylint linter, pyright LSP
 - **Git Integration**: Gitsigns for inline git blame and diff viewing
 - **Fuzzy Finding**: Telescope for files, buffers, grep, and more
@@ -226,7 +228,8 @@ This configuration uses:
 
 **Cause**: `python3-venv` package is not installed on Ubuntu/Debian systems.
 
-**Fix**: 
+**Fix**:
+
 ```bash
 sudo apt install python3-venv python3-pip
 ```
@@ -236,6 +239,7 @@ sudo apt install python3-venv python3-pip
 **Warning**: Repository moved from `mason-org` to `williamboman`
 
 **Fix**: Run `:Lazy update` or manually update git remotes:
+
 ```bash
 cd ~/.local/share/nvim/lazy/mason.nvim
 git remote set-url origin https://github.com/williamboman/mason.nvim.git
@@ -262,6 +266,7 @@ git remote set-url origin https://github.com/williamboman/mason-lspconfig.nvim.g
 4. Run `:Mason` to install the server
 
 Example:
+
 ```lua
 ensure_installed = {
   "ts_ls",
@@ -278,6 +283,7 @@ ensure_installed = {
 3. Configure it in `~/.config/nvim/lua/josean/plugins/formatting.lua` (if exists) or create conform.nvim config
 
 Example:
+
 ```lua
 ensure_installed = {
   "prettier",
@@ -294,6 +300,7 @@ ensure_installed = {
 3. Set it in your init.lua or main config file
 
 Example plugin config:
+
 ```lua
 return {
   "folke/tokyonight.nvim",
@@ -309,6 +316,7 @@ return {
 Edit the appropriate file in `~/.config/nvim/lua/josean/plugins/` or create a new file for keymaps.
 
 Example:
+
 ```lua
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Open file explorer" })
 ```
@@ -316,11 +324,13 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Open file explorer" })
 ### Backup and Restore
 
 **Backup current config**:
+
 ```bash
 cp -r ~/.config/nvim ~/.config/nvim-backup-$(date +%Y%m%d-%H%M%S)
 ```
 
 **Restore from backup**:
+
 ```bash
 rm -rf ~/.config/nvim
 mv ~/.config/nvim-backup-20260205-163702 ~/.config/nvim

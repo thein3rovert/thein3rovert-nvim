@@ -18,7 +18,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     opts.desc = "Show LSP implementations"
     keymap.set("n", "<leader>gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
-
+    -- TODO: TEST TROBULE TODO
     opts.desc = "Show LSP type definitions"
     keymap.set("n", "<leader>gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
 
