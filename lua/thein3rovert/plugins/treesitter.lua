@@ -1,20 +1,11 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  branch = "main",
   event = { "BufReadPre", "BufNewFile" },
   build = ":TSUpdate",
-  tag = "v0.9.3", -- Pin to v0.9.x for telescope compatibility
   config = function()
-    -- import nvim-treesitter plugin
-    local treesitter = require("nvim-treesitter.configs")
-
-    -- configure treesitter
-    treesitter.setup({ -- enable syntax highlighting
-      highlight = {
-        enable = true,
-      },
-      -- enable indentation
-      indent = { enable = true },
-      -- ensure these language parsers are installed
+    -- New nvim-treesitter main branch API
+    require("nvim-treesitter").setup({
       ensure_installed = {
         "json",
         "javascript",
@@ -36,15 +27,8 @@ return {
         "query",
         "vimdoc",
         "c",
-      },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<C-space>",
-          node_incremental = "<C-space>",
-          scope_incremental = false,
-          node_decremental = "<bs>",
-        },
+        "python",
+        "nix",
       },
     })
 
