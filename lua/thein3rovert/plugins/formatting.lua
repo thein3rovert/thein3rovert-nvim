@@ -20,6 +20,9 @@ return {
         liquid = { "prettier" },
         lua = { "stylua" },
         python = { "isort", "black" },
+        nix = { "alejandra" },
+        yaml = { "prettier" },
+        ["yaml.ansible"] = { "prettier" },
       },
       format_on_save = {
         lsp_fallback = true,

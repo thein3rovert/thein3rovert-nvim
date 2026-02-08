@@ -15,6 +15,8 @@ return {
         "prismals",
         "pyright",
         "eslint",
+        "nil_ls", -- nix language server
+        "ansiblels", -- ansible language server
       },
     },
     dependencies = {
@@ -43,6 +45,8 @@ return {
         "black", -- python formatter
         "pylint",
         "eslint_d",
+        "alejandra", -- nix formatter
+        "ansible-lint", -- ansible linter
       },
     },
     dependencies = {
