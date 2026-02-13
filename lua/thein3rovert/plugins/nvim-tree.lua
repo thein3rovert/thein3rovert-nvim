@@ -9,29 +9,15 @@ return {
     vim.g.loaded_netrwPlugin = 1
 
     nvimtree.setup({
-      sync_root_with_cwd = true,
-      respect_buf_cwd = true,
+      sync_root_with_cwd = false,
+      respect_buf_cwd = false,
       update_focused_file = {
         enable = true,
-        update_root = true,
+        update_root = false,
       },
       view = {
         width = 50,
         relativenumber = true,
-      },
-      -- change folder arrow icons
-      renderer = {
-        indent_markers = {
-          enable = true,
-        },
-        icons = {
-          glyphs = {
-            folder = {
-              arrow_closed = "", -- arrow when folder is closed
-              arrow_open = "", -- arrow when folder is open
-            },
-          },
-        },
       },
       -- disable window_picker for
       -- explorer to work well with
@@ -45,24 +31,44 @@ return {
       },
       filters = {
         custom = { ".DS_Store" },
+        dotfiles = false,
+        git_clean = false,
+        no_buffer = false,
       },
       git = {
-        ignore = false,
+        enable = true,
+        ignore = true,
+        timeout = 400,
+      },
+      filesystem_watchers = {
+        enable = true,
+        debounce_delay = 50,
+        ignore_dirs = {
+          "node_modules",
+          ".git",
+          "target",
+          "dist",
+          "build",
+        },
       },
       renderer = {
         indent_markers = {
           enable = true,
         },
-        highlight_git = "name", -- highlight git status in file names
+        highlight_git = "name",
+        root_folder_label = false,
         icons = {
-          git_placement = "after", -- show git icons after file name
+          git_placement = "after",
           show = {
             git = true,
+            folder = true,
+            file = true,
+            folder_arrow = false,
           },
           glyphs = {
             folder = {
-              arrow_closed = "", -- arrow when folder is closed
-              arrow_open = "", -- arrow when folder is open
+              arrow_closed = "",
+              arrow_open = "",
             },
             git = {
               unstaged = "●",

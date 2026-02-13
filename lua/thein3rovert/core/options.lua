@@ -37,3 +37,6 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
+
+-- reduce key sequence timeout to fix keymap delays
+opt.timeoutlen = 300 -- time to wait for a mapped sequence to complete (in milliseconds)
