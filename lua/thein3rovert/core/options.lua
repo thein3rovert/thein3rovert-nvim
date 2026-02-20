@@ -5,6 +5,12 @@ local opt = vim.opt
 opt.relativenumber = true
 opt.number = true
 
+opt.encoding = "utf-8"
+opt.fileencoding = "utf-8"
+opt.laststatus = 3
+opt.expandtab = true
+opt.smarttab = true
+
 -- tabs & indentation
 opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
 opt.shiftwidth = 2 -- 2 spaces for indent width
@@ -40,3 +46,18 @@ opt.swapfile = false
 
 -- reduce key sequence timeout to fix keymap delays
 opt.timeoutlen = 300 -- time to wait for a mapped sequence to complete (in milliseconds)
+
+-- auto-reload files when changed outside nvim
+opt.autoread = true
+
+-- trigger autoread when cursor stops moving
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+  pattern = "*",
+  command = "if mode() != 'c' | checktime | endif",
+})
+
+-- notification after file change
+vim.api.nvim_create_autocmd("FileChangedShellPost", {
+  pattern = "*",
+  command = "echohl WarningMsg | echo 'File changed on disk. Buffer reloaded.' | echohl None",
+})
