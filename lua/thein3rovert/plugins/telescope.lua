@@ -18,6 +18,13 @@ return {
         layout_config = { prompt_position = "top" },
         sorting_strategy = "ascending",
         winblend = 0,
+        file_ignore_patterns = {
+          "%.obsidian/",
+          "assets/",
+          "%.assets/",
+          "attachments/",
+          "%.git/",
+        },
         mappings = {
           i = {
             ["<C-k>"] = actions.move_selection_previous, -- move to prev result
