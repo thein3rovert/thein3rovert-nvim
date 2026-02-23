@@ -17,7 +17,11 @@ opt.shiftwidth = 2 -- 2 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
 
-opt.wrap = false
+opt.wrap = true
+
+-- wrapping settings for when wrap is enabled
+opt.linebreak = true -- wrap at word boundaries, not mid-word
+opt.breakindent = true -- wrapped lines maintain indent
 
 -- search settings
 opt.ignorecase = true -- ignore case when searching
@@ -49,6 +53,7 @@ opt.timeoutlen = 300 -- time to wait for a mapped sequence to complete (in milli
 
 -- auto-reload files when changed outside nvim
 opt.autoread = true
+opt.updatetime = 100 -- faster file reload (default is 4000ms)
 
 -- trigger autoread when cursor stops moving
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
@@ -61,3 +66,9 @@ vim.api.nvim_create_autocmd("FileChangedShellPost", {
   pattern = "*",
   command = "echohl WarningMsg | echo 'File changed on disk. Buffer reloaded.' | echohl None",
 })
+
+-- Auto-check for file changes every 100ms (no cursor movement required)
+-- local timer = vim.loop.new_timer()
+-- timer:start(100, 100, vim.schedule_wrap(function()
+--   vim.cmd("checktime")
+-- end))

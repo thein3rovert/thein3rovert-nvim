@@ -65,4 +65,24 @@ vim.diagnostic.config({
       [severity.INFO] = "",
     },
   },
+  virtual_text = {
+    spacing = 4,
+    prefix = "●",
+    source = "if_many", -- Show source (e.g., eslint, typescript) if multiple sources
+    format = function(diagnostic)
+      -- Show full diagnostic message
+      return string.format("%s", diagnostic.message)
+    end,
+  },
+  update_in_insert = false,
+  underline = true,
+  severity_sort = true,
+  float = {
+    focusable = false,
+    style = "minimal",
+    border = "rounded",
+    source = "always",
+    header = "",
+    prefix = "",
+  },
 })

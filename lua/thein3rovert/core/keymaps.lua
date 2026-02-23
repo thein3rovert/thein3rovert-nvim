@@ -30,3 +30,9 @@ keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" 
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+
+-- toggle line wrap
+keymap.set("n", "<leader>uw", "<cmd>set wrap!<CR>", { desc = "Toggle line wrap" })
+
+-- reload neovim config
+keymap.set("n", "<leader>R", "<cmd>source ~/.config/nvim/init.lua<CR>", { desc = "Reload Neovim config" })

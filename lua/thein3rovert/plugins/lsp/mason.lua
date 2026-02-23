@@ -4,7 +4,8 @@ return {
     opts = {
       -- list of servers for mason to install
       ensure_installed = {
-        "ts_ls",
+        -- "ts_ls", -- commented out in favor of vtsls (better performance)
+        "vtsls", -- faster TypeScript LSP with better features
         "html",
         "cssls",
         "tailwindcss",
