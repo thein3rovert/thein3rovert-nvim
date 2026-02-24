@@ -14,6 +14,17 @@ return {
     icons = {
       mappings = false,
     },
+    spec = {
+      { "<leader>b", group = "Buffers" },
+      { "<leader>e", group = "Explorer" },
+      { "<leader>f", group = "Find" },
+      { "<leader>g", group = "Git" },
+      { "<leader>m", group = "Format" },
+      { "<leader>n", group = "Notifications" },
+      { "<leader>t", group = "Tabs/Terminal" },
+      { "<leader>u", group = "UI" },
+      { "<leader>w", group = "Window/Workspace" },
+    },
   },
   keys = {
     {
