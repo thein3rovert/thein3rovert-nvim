@@ -1,11 +1,9 @@
 -- Terraform infrastructure as code
 return {
   lsp = {
-    "terraformls", -- Terraform LSP
+    "terraformls", -- Terraform LSP (includes formatting)
   },
-  formatters = {
-    "terraform_fmt", -- Terraform formatter
-  },
+  formatters = {},
   linters = {
     "tflint", -- Terraform linter
   },
