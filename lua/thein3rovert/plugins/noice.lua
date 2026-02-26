@@ -20,9 +20,25 @@ return {
       inc_rename = false, -- enables an input dialog for inc-rename.nvim
       lsp_doc_border = false, -- add a border to hover docs and signature help
     },
+    routes = {
+      {
+        view = "notify",
+        filter = { event = "msg_showmode" },
+      },
+    },
   },
   config = function(_, opts)
     require("noice").setup(opts)
+
+    -- Configure nvim-notify timeout
+    require("notify").setup({
+      timeout = 2000, -- 2 seconds (adjust to your preference: 1000 = 1 second)
+      stages = "fade", -- Animation style
+      render = "default",
+      background_colour = "#000000",
+      max_width = 50,
+      max_height = 10,
+    })
 
     local keymap = vim.keymap
     keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<cr>", { desc = "Dismiss notifications" })
