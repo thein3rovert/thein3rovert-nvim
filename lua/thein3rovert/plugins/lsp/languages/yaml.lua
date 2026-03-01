@@ -9,4 +9,7 @@ return {
   linters = {
     "yamllint", -- YAML linter
   },
+  dependencies = {
+    "imroc/kubeschema.nvim", -- Kubernetes schema support
+  },
 }

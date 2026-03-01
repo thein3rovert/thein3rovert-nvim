@@ -4,7 +4,7 @@ return {
     "nil_ls", -- Nix LSP
   },
   formatters = {
-    "alejandra", -- Nix formatter
+    "nixfmt", -- Nix formatter
   },
   linters = {},
 }
