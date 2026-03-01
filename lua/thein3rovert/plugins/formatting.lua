@@ -20,7 +20,7 @@ return {
         liquid = { "prettier" },
         lua = { "stylua" },
         python = { "isort", "black" },
-        nix = { "alejandra" },
+        nix = { "nixfmt" },
         yaml = { "prettier" },
         ["yaml.ansible"] = { "prettier" },
       },
