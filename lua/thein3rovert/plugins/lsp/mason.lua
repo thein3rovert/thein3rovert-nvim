@@ -43,6 +43,13 @@ return {
     opts = {
       -- list of servers for mason to install (loaded from language files)
       ensure_installed = ensure_installed_lsp,
+      -- Automatically configure and enable LSP servers (Nvim 0.11+)
+      handlers = {
+        function(server_name)
+          -- Enable the LSP server using the new Neovim 0.11+ API
+          vim.lsp.enable(server_name)
+        end,
+      },
     },
     dependencies = {
       {
