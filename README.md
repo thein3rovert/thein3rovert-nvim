@@ -1,360 +1,210 @@
-# Neovim Configuration
+# My Personal Neovim Configuration
 
-This is a custom Neovim configuration based on the Josean Martinez setup, optimized for web development and general programming.
+_UI powered by [NvChad](https://nvchad.com/)_
 
-## Table of Contents
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/b95c6e87-6a39-4e2a-832a-18a650925cb9" />
 
-- [Overview](#overview)
-- [Key Features](#key-features)
-- [Directory Structure](#directory-structure)
-- [Key Mappings](#key-mappings)
-- [Plugins Overview](#plugins-overview)
-- [LSP Configuration](#lsp-configuration)
-- [Common Issues & Fixes](#common-issues--fixes)
-- [Customization Guide](#customization-guide)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/1aa9c559-7fc8-4af4-b76e-da39b3c55952" />
 
-## Overview
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/2ec1e452-7223-4fb0-aba8-a6723f7d8e3b" />
 
-This configuration uses:
+---
 
-- **Plugin Manager**: [lazy.nvim](https://github.com/folke/lazy.nvim)
-- **LSP**: Native Neovim LSP with Mason for server management
-- **Completion**: nvim-cmp with multiple sources
-- **Fuzzy Finder**: Telescope
-- **Syntax Highlighting**: Treesitter
-- **Status Line**: lualine
-- **File Explorer**: nvim-tree
+<details>
+<summary>Features & more screenshots</summary>
 
-## Key Features
+> These are just some of the many features
 
-**Web Development**: Full support for TypeScript, React, Vue, Svelte, HTML, CSS, Tailwind
+AI Integration (Copilot)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/fa0f5a90-9b39-4893-bb23-6716fc0d9962" />
 
-- **Python Development**: Black formatter, pylint linter, pyright LSP
-- **Git Integration**: Gitsigns for inline git blame and diff viewing
-- **Fuzzy Finding**: Telescope for files, buffers, grep, and more
-- **Code Navigation**: LSP-based go-to-definition, references, diagnostics
-- **AI Assistance**: GitHub Copilot integration
-- **Linting & Formatting**: Automatic formatting on save
+AI Predefined [Prompts](lua/configs/prompts.lua)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/c13ea85f-add2-47b9-a646-5f1571d025e1" />
 
-## Directory Structure
+Git Client (LazyGit)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/53ae2f2e-6076-4528-b421-feb7cc5baaf0" />
 
-```
-~/.config/nvim/
-├── init.lua                    # Entry point
-├── lazy-lock.json             # Plugin lockfile (auto-generated)
-├── lua/
-│   └── josean/
-│       ├── lazy.lua           # Plugin manager setup
-│       ├── lsp.lua            # LSP configuration
-│       └── plugins/           # Plugin configurations
-│           ├── ai.lua         # GitHub Copilot
-│           ├── gitsigns.lua   # Git integration
-│           ├── linting.lua    # Linters configuration
-│           ├── lualine.lua    # Status line
-│           ├── substitute.lua # Text substitution
-│           ├── treesitter.lua # Syntax highlighting
-│           └── lsp/           # LSP-specific plugins
-│               └── mason.lua  # Mason setup
-└── after/
-    ├── lsp/                   # LSP server configs
-    │   ├── emmet_ls.lua
-    │   ├── eslint.lua
-    │   ├── graphql.lua
-    │   └── svelte.lua
-    └── queries/               # Treesitter queries
-        └── ecma/
-            └── textobjects.scm
-```
+Git DiffView
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/1d2f947e-8a4f-4876-b1a5-5ec5a7188a34" />
 
-## Key Mappings
+Git Inline Diff
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/1a6805b3-d489-4977-a65a-b1adf428be0f" />
 
-### General
+Debugger (DAP)
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/5217107a-b253-41ca-ba65-9903c223bc9b" />
 
-- `<leader>` = Space key
-- **Which-Key**: Press `<leader>` (space) and wait to see a popup with all available keymaps. LSP keymaps (like code actions, rename, go to definition) only appear when you have an LSP server active in the current buffer.
+Docker Integration (LazyDocker)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/e7caa1b1-d2b2-4391-bfb3-5301349f1d57" />
 
-### File Navigation (press `<leader>f` to see telescope keymaps)
+LSP References
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/f909cd0d-8713-4e7c-8b9d-9cde14b1db55" />
 
-- `<leader>ff` - Find files (Telescope)
-- `<leader>fg` - Live grep (search in files)
-- `<leader>fb` - Find buffers
-- `<leader>fh` - Find help tags
-- `<leader>e` - Toggle file explorer (nvim-tree)
+LSP Peek Definition
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/80f2c00f-1ec8-4ee2-a742-e3a3a0f907fc" />
 
-### LSP (press `f` to see all LSP finder keymaps)
+File Picker (Snacks)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/ea91167e-228a-49fb-b25b-16fc09527df9" />
 
-- `fr` - Find LSP references
-- `fd` - Go to definition
-- `fD` - Go to declaration
-- `fi` - Show implementations
-- `ft` - Show type definitions
-- `K` - Show hover documentation
-- `<leader>ca` - Code action
-- `<leader>rn` - Rename symbol
-- `[d` / `]d` - Previous/next diagnostic
-- `<leader>d` - Show line diagnostics
-- `<leader>D` - Show buffer diagnostics
-- `<leader>rs` - Restart LSP
+Symbols Outline
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/21c800ff-dd25-4728-a9f6-8bea36fe06a7" />
 
-### Git
+Error Display
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/d5a6e02f-4c00-4337-83c4-defbd6cbbce4" />
 
-- `]c` / `[c` - Next/previous hunk
-- `<leader>hs` - Stage hunk
-- `<leader>hr` - Reset hunk
-- `<leader>hp` - Preview hunk
-- `<leader>hb` - Blame line
+Docs Hover
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/0314ab43-b5a9-46e9-acc0-e9103e42fa5d" />
 
-### Text Manipulation
+Completion Menu
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/d3a19bcb-6a0f-471d-931b-f2c7b226209e" />
 
-- `s` - Substitute text (motion)
-- `ss` - Substitute line
-- `S` - Substitute to end of line
-- `<leader>s` - Substitute in visual mode
+File Tree Explorer (NvimTree)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/b32c6797-94b1-4822-8e75-8abe0302716e" />
 
-### Window Management
+File Manager (Yazi)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/861a2ec5-4a5e-4d43-bd8d-c9107e24cd32" />
 
-- `<C-h/j/k/l>` - Navigate between windows
-- `<leader>wv` - Split vertical
-- `<leader>wh` - Split horizontal
-- `<leader>we` - Make splits equal
-- `<leader>wd` - Close split
+Floating Terminal
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/29c070c1-d0da-4a20-99a5-70869aabad19" />
 
-### Tabs
+Horizontal Terminal
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/3de1e62d-18fe-4c52-b52e-bcf408ca9102" />
 
-- `<leader>to` - Open new tab
-- `<leader>tx` - Close tab
-- `<leader>tn` - Next tab
-- `<leader>tp` - Previous tab
+Vertical Terminal
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/c5f95ca0-caba-4efa-9c08-6ff93e2be5e8" />
 
-## Plugins Overview
+</details>
 
-### Core Plugins
+---
 
-1. **lazy.nvim** - Plugin manager
-2. **plenary.nvim** - Lua utilities (required by many plugins)
+This repository is meant as a reference for me (and maybe for you too, to get inspiration) and to document my config.
 
-### LSP & Completion
+[Keymaps](lua/configs/mappings/mappings.lua) are heavily configured and personalized.
+This is to maintain consistency and compatibility with my _brain,_ Compositor/WM, TUI/GUI apps, Shell, Tmux/Terminal Emulator, etc.
 
-1. **mason.nvim** - Manage LSP servers, DAP servers, linters, and formatters
-2. **mason-lspconfig.nvim** - Bridge between Mason and lspconfig
-3. **mason-tool-installer.nvim** - Auto-install tools
-4. **nvim-lspconfig** - LSP configuration
-5. **nvim-cmp** - Completion engine
-   - cmp-buffer
-   - cmp-path
-   - cmp-cmdline
-   - cmp-nvim-lsp
-   - LuaSnip (snippet engine)
-   - cmp_luasnip
-   - friendly-snippets
+---
 
-### Navigation & Search
+## Install & Use:
 
-1. **telescope.nvim** - Fuzzy finder
-   - telescope-fzf-native.nvim
-   - telescope-ui-select.nvim
-2. **nvim-tree.lua** - File explorer
-3. **nvim-web-devicons** - File icons
-4. **which-key.nvim** - Keymap helper (press `<leader>` and wait to see available keymaps)
-
-### Code Enhancement
-
-1. **nvim-treesitter** - Syntax highlighting and code parsing
-2. **nvim-treesitter-textobjects** - Text objects based on syntax
-3. **gitsigns.nvim** - Git decorations
-4. **comment.nvim** - Easy commenting
-5. **nvim-autopairs** - Auto-close brackets/quotes
-6. **nvim-surround** - Surround text objects
-7. **indent-blankline.nvim** - Indentation guides
-
-### UI
-
-1. **lualine.nvim** - Status line
-2. **bufferline.nvim** - Buffer tabs
-3. **catppuccin** - Color scheme
-4. **dressing.nvim** - Better UI for select/input
-5. **noice.nvim** - Better UI for messages, cmdline, popupmenu
-6. **notify.nvim** - Better notifications
-
-### Tools
-
-1. **conform.nvim** - Code formatting
-2. **nvim-lint** - Linting
-3. **copilot.lua** - GitHub Copilot integration
-4. **todo-comments.nvim** - Highlight TODO comments
-5. **trouble.nvim** - Diagnostics list
-
-## LSP Configuration
-
-### Installed Language Servers
-
-- **ts_ls** - TypeScript/JavaScript
-- **html** - HTML
-- **cssls** - CSS
-- **tailwindcss** - Tailwind CSS
-- **svelte** - Svelte
-- **lua_ls** - Lua
-- **graphql** - GraphQL
-- **emmet_ls** - Emmet abbreviation expansion
-- **prismals** - Prisma ORM
-- **pyright** - Python
-- **eslint** - ESLint
-
-### Installed Formatters
-
-- **prettier** - JavaScript/TypeScript/CSS/HTML/JSON/Markdown/YAML
-- **stylua** - Lua
-- **isort** - Python imports
-- **black** - Python code
-
-### Installed Linters
-
-- **pylint** - Python
-- **eslint_d** - JavaScript/TypeScript (faster than eslint)
-
-## Common Issues & Fixes
-
-### Issue: Treesitter compatibility errors with Telescope
-
-**Error**: `attempt to call field 'ft_to_lang' (a nil value)` or `attempt to call field 'is_enabled' (a nil value)`
-
-**Cause**: nvim-treesitter 1.0+ removed several API functions (`ft_to_lang`, `is_enabled`, `get_module`), but telescope.nvim and other plugins still use them.
-
-**Fix**: Pinned nvim-treesitter to version v0.9.3 (before the 1.0 breaking changes) by adding `tag = "v0.9.3"` to the treesitter plugin config. This maintains compatibility with telescope.nvim and other plugins that use the old API.
-
-### Issue: Mason packages fail to install
-
-**Error**: Python tools (black, pylint) fail to install
-
-**Cause**: `python3-venv` package is not installed on Ubuntu/Debian systems.
-
-**Fix**:
+> Only works on Linux (I think)
 
 ```bash
-sudo apt install python3-venv python3-pip
-```
+# Install & run
+git clone https://github.com/r4ppz/nvZzz.git ~/.config/nvim && nvim
 
-### Issue: Mason repository URL warnings
+# inside, run
+# :MasonInstallAll
 
-**Warning**: Repository moved from `mason-org` to `williamboman`
-
-**Fix**: Run `:Lazy update` or manually update git remotes:
-
-```bash
-cd ~/.local/share/nvim/lazy/mason.nvim
-git remote set-url origin https://github.com/williamboman/mason.nvim.git
-
-cd ~/.local/share/nvim/lazy/mason-lspconfig.nvim
-git remote set-url origin https://github.com/williamboman/mason-lspconfig.nvim.git
-```
-
-### Issue: Treesitter module not found
-
-**Error**: `module 'nvim-treesitter.configs' not found`
-
-**Cause**: The module was renamed from `configs` to `config` in newer versions.
-
-**Fix**: Updated require statement from `require("nvim-treesitter.configs")` to `require("nvim-treesitter.config")`.
-
-## Customization Guide
-
-### Adding a New Language Server
-
-1. Edit `~/.config/nvim/lua/josean/plugins/lsp/mason.lua`
-2. Add the server name to `ensure_installed` in the `mason-lspconfig` section
-3. Restart Neovim
-4. Run `:Mason` to install the server
-
-Example:
-
-```lua
-ensure_installed = {
-  "ts_ls",
-  "html",
-  -- ... existing servers
-  "rust_analyzer", -- add new server here
-}
-```
-
-### Adding a New Formatter
-
-1. Edit `~/.config/nvim/lua/josean/plugins/lsp/mason.lua`
-2. Add the formatter to `ensure_installed` in the `mason-tool-installer` section
-3. Configure it in `~/.config/nvim/lua/josean/plugins/formatting.lua` (if exists) or create conform.nvim config
-
-Example:
-
-```lua
-ensure_installed = {
-  "prettier",
-  "stylua",
-  -- ... existing formatters
-  "rustfmt", -- add new formatter here
-}
-```
-
-### Changing the Color Scheme
-
-1. Find a colorscheme plugin you like (e.g., `folke/tokyonight.nvim`)
-2. Add it to your plugins folder
-3. Set it in your init.lua or main config file
-
-Example plugin config:
-
-```lua
-return {
-  "folke/tokyonight.nvim",
-  priority = 1000,
-  config = function()
-    vim.cmd("colorscheme tokyonight")
-  end,
-}
-```
-
-### Adding Custom Keymaps
-
-Edit the appropriate file in `~/.config/nvim/lua/josean/plugins/` or create a new file for keymaps.
-
-Example:
-
-```lua
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Open file explorer" })
-```
-
-### Backup and Restore
-
-**Backup current config**:
-
-```bash
-cp -r ~/.config/nvim ~/.config/nvim-backup-$(date +%Y%m%d-%H%M%S)
-```
-
-**Restore from backup**:
-
-```bash
+# To uninstall
 rm -rf ~/.config/nvim
-mv ~/.config/nvim-backup-20260205-163702 ~/.config/nvim
+rm -rf ~/.local/state/nvim
+rm -rf ~/.local/share/nvim
 ```
 
-## Useful Commands
+Current Neovim version
 
-- `:Lazy` - Open plugin manager
-- `:Lazy update` - Update all plugins
-- `:Lazy sync` - Sync plugins (install/update/clean)
-- `:Mason` - Open Mason package manager
-- `:LspInfo` - Show LSP status
-- `:checkhealth` - Check Neovim health
-- `:TSInstall <language>` - Install treesitter parser
-- `:TSUpdate` - Update all treesitter parsers
+```bash
+❯ nvim -v
 
-## Resources
+NVIM v0.12.2
+Build type: RelWithDebInfo
+LuaJIT 2.1.1774896198
+```
 
-- [Neovim documentation](https://neovim.io/doc/)
-- [Lazy.nvim documentation](https://lazy.folke.io/)
-- [Mason.nvim documentation](https://github.com/williamboman/mason.nvim)
-- [nvim-treesitter documentation](https://github.com/nvim-treesitter/nvim-treesitter)
-- [Telescope.nvim documentation](https://github.com/nvim-telescope/telescope.nvim)
+## Languages & File Types Supported/Configured
 
-## License
+> See [treesitter.lua](lua/plugins/treesitter.lua), [lsp.lua](lua/plugins/lsp.lua)
+> and [servers/](lua/configs/servers/) for more info.
 
-This configuration is based on Josean Martinez's Neovim setup. Feel free to modify and use it as you like!
+```ini
+# Programming Languages (LSP + Treesitter + Formatter)
+- C
+- Go
+- C++
+- Lua
+- Java
+- Rust
+- Python
+- Assembly
+- TypeScript
+- JavaScript
+- Bash
+- Zsh
+- SQL
+- PHP
+
+# Web & Frontend
+- HTML
+- Astro
+- Svelte
+- CSS/SCSS/Less
+- React (JSX/TSX)
+- Laravel (Blade)
+
+# Config & Data Formats
+- YAML
+- JSON
+- TOML
+- XML
+- Markdown
+- Hyprland
+- Docker/Docker Compose
+- QML
+
+# Editor & System (Treesitter only)
+- Vim script, Vimdoc, Luadoc, printf, query
+- INI, udev, ssh_config, tmux
+- diff, git_config, gitcommit, git_rebase, gitignore, gitattributes
+- regex, LaTeX
+- More...
+```
+
+---
+
+## Plugins Used:
+
+Almost all plugins are lazy loaded, meaning they load only when used, not on startup.
+
+This is why the startup time is under 1 second (`~15 milliseconds`); it's fast asf compared to VSCode or other IDEs.
+
+| Plugin                                    | Description                                  |
+| ----------------------------------------- | -------------------------------------------- |
+| folke/lazy.nvim                           | Plugin manager (lazy loading)                |
+| folke/snacks.nvim                         | Snacks plugin collection                     |
+| nvchad/base46                             | NvChad theme plugin                          |
+| nvchad/ui                                 | NvChad UI plugin                             |
+| neovim/nvim-lspconfig                     | LSP configuration framework                  |
+| nvim-treesitter/nvim-treesitter           | Better syntax parsing                        |
+| mfussenegger/nvim-lint                    | Async linting engine                         |
+| stevearc/conform.nvim                     | Code formatting engine                       |
+| saghen/blink.cmp                          | Completion engine                            |
+| L3MON4D3/LuaSnip                          | Snippet engine                               |
+| rafamadriz/friendly-snippets              | Collection of snippets                       |
+| williamboman/mason.nvim                   | Package manager for LSP/DAP/Linter/Formatter |
+| williamboman/mason-lspconfig.nvim         | Auto-install LSP servers                     |
+| jay-babu/mason-nvim-dap.nvim              | Auto-install DAP adapters                    |
+| folke/trouble.nvim                        | Diagnostics and references list              |
+| r4ppz/lspeek.nvim                         | Peek LSP Definitions                         |
+| Bekaboo/dropbar.nvim                      | Winbar with breadcrumbs                      |
+| hedyhli/outline.nvim                      | Symbols outline panel                        |
+| lewis6991/gitsigns.nvim                   | Git signs in gutter                          |
+| sindrets/diffview.nvim                    | Git diff viewer                              |
+| CopilotC-Nvim/CopilotChat.nvim            | Copilot chat interface                       |
+| mfussenegger/nvim-dap                     | Debug Adapter Protocol client                |
+| rcarriga/nvim-dap-ui                      | DAP debugging interface                      |
+| theHamsta/nvim-dap-virtual-text           | Inline variable display                      |
+| jbyuki/one-small-step-for-vimkind         | Debug Neovim Lua code                        |
+| windwp/nvim-autopairs                     | Auto-close brackets and quotes               |
+| nvim-mini/mini.surround                   | Surround, delete, change pairs               |
+| andymass/vim-matchup                      | Extended match navigation                    |
+| lukas-reineke/indent-blankline.nvim       | Indent guide lines                           |
+| chentoast/marks.nvim                      | Visual mark manager                          |
+| RRethy/vim-illuminate                     | Highlight word under cursor                  |
+| nvim-tree/nvim-tree.lua                   | File tree explorer                           |
+| mikavilpas/yazi.nvim                      | File manager (Yazi)                          |
+| nvim-pack/nvim-spectre                    | Better search and replace                    |
+| folke/which-key.nvim                      | Keymap popup helper                          |
+| MeanderingProgrammer/render-markdown.nvim | Improve viewing markdown                     |
+| zbirenbaum/copilot.lua                    | Copilot integration                          |
+| nvim-lua/plenary.nvim                     | Lua utility functions                        |
+| nvim-neotest/nvim-nio                     | Async IO library                             |
+| nvim-tree/nvim-web-devicons               | Nerd font icons                              |
