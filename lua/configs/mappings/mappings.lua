@@ -6,6 +6,7 @@ require("configs.mappings.custom")
 require("configs.mappings.lsp")
 require("configs.mappings.plugin")
 require("configs.mappings.git")
+require("configs.mappings.personal")
 
 -- Concepts:
 -- C = Control
