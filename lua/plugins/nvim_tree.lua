@@ -94,19 +94,5 @@ return {
 
   keys = {
     { "<M-e>", "<cmd>NvimTreeToggle<CR>", desc = "Toggle NvimTree" },
-    {
-      "<leader>ca",
-      function()
-        local win_util = require("utils.window")
-        win_util.close_panels()
-
-        if vim.bo.filetype == "copilot-chat" then
-          win_util.focus_main_window()
-        end
-
-        require("utils.tree_chat").add_to_copilot()
-      end,
-      desc = "Add file/s to CopilotChat",
-    },
   },
 }

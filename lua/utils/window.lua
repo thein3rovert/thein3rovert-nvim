@@ -2,7 +2,6 @@ local M = {}
 
 -- Filetypes that should not be open at the same time
 local SIDE_PANEL_FTS = {
-  "copilot-chat",
   "Outline",
   "terminal",
   "NvTerm_sp",
@@ -19,7 +18,6 @@ local SIDE_PANEL_FTS = {
 }
 
 local EXCLUDED_FILETYPES = {
-  "copilot-chat",
   "NvimTree",
   "neo-tree",
   "Outline",
@@ -180,7 +178,7 @@ end
 
 --- Closes other side panels (if target is not already open) then runs the toggle.
 --- @param toggle_fn function: The toggle function to run.
---- @param panel_ft string: The filetype of the panel this toggle opens (e.g. "copilot-chat", "Outline").
+--- @param panel_ft string: The filetype of the panel this toggle opens (e.g. "Outline").
 function M.toggle_panel(toggle_fn, panel_ft)
   -- Check if this panel is already open
   local already_open = false
