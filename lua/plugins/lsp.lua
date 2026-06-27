@@ -97,6 +97,8 @@ return {
       auto_close = true,
       focus = true,
       warn_no_results = false,
+      restore = false,  -- Don't restore cursor position (prevents out of range errors)
+      auto_jump = false, -- Don't auto jump to items
     },
   },
 
