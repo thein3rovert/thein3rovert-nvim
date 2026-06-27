@@ -97,9 +97,21 @@ return {
       auto_close = true,
       focus = true,
       warn_no_results = false,
-      restore = false,  -- Don't restore cursor position (prevents out of range errors)
-      auto_jump = false, -- Don't auto jump to items
     },
+    config = function(_, opts)
+      local trouble = require("trouble")
+      trouble.setup(opts)
+      
+      -- Wrap the cursor positioning to prevent out of range errors
+      local view = require("trouble.view")
+      local original_set_cursor = view.set_cursor
+      view.set_cursor = function(self, ...)
+        local ok, err = pcall(original_set_cursor, self, ...)
+        if not ok then
+          vim.notify("Trouble: " .. tostring(err), vim.log.levels.DEBUG)
+        end
+      end
+    end,
   },
 
   -- Development
