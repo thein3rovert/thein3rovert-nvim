@@ -115,6 +115,15 @@ LuaJIT 2.1.1774896198
 > See [treesitter.lua](lua/plugins/treesitter.lua), [lsp.lua](lua/plugins/lsp.lua)
 > and [servers/](lua/configs/servers/) for more info.
 
+## Loading Colorscheme
+
+``````
+```
+:Lazy sync
+:lua require("base46").load_all_highlights()
+``````
+
+
 ```ini
 # Programming Languages (LSP + Treesitter + Formatter)
 - C

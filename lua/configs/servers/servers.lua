@@ -21,27 +21,27 @@ M.lsp_list = {
   "css_variables",
   "emmet_ls",
   "astro",
-  "svelte",
+  -- "svelte",
   "prismals",
-  "intelephense",
+  -- "intelephense",
 
   -- BACKEND
-  "jdtls",
-  "docker_language_server",
-  "dockerls",
-  "lemminx",
+  -- "jdtls",
+  -- "docker_language_server",
+  -- "dockerls",
+  -- "lemminx",
   "postgres_lsp",
   "gopls",
 
-  "qmlls",
+  -- "qmlls",
   "taplo",
   "lua_ls",
   "pyright",
   "bashls",
   "rust_analyzer",
-  "hyprls",
-  "clangd",
-  "asm_lsp",
+  -- "hyprls",
+  -- "clangd",
+  -- "asm_lsp",
 }
 
 function M.setup(capabilities)
