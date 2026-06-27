@@ -46,6 +46,7 @@ return {
 
       "yaml",
       "toml",
+      "nix",
       "xml",
       "json",
       "qmljs",
