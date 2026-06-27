@@ -1,10 +1,10 @@
 local M = {}
 
 function M.setup(capabilities)
-  vim.lsp.config("nixd", {
+  vim.lsp.config("nil_ls", {
     capabilities = capabilities,
     settings = {
-      nixd = {
+      ["nil"] = {
         formatting = {
           command = { "nixfmt" },
         },

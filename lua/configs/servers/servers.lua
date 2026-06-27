@@ -35,7 +35,7 @@ M.lsp_list = {
 
   -- "qmlls",
   "taplo",
-  "nixd",
+  "nil_ls",
   "lua_ls",
   "pyright",
   "bashls",
