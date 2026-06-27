@@ -54,12 +54,17 @@ return {
         },
       }
 
-      -- Set the default initial state (Disabled)
+      -- Set the default initial state
       vim.diagnostic.config({
-        virtual_text = false,
-        signs = false,
-        underline = false,
+        virtual_text = {
+          prefix = "●",
+          spacing = 2,
+        },
+        signs = true,
+        underline = true,
         update_in_insert = false,
+        severity_sort = true,
+        float = { border = "rounded", source = "if_many" },
       })
 
       -- Use colorify intsread
@@ -99,7 +104,7 @@ return {
   {
     "r4ppz/lspeek.nvim",
     event = "LspAttach",
-    dev = true,
+    -- dev = true,
     opts = {
       window = {
         width = 70,

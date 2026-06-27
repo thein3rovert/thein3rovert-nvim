@@ -5,7 +5,7 @@ return {
   cmd = "Spectre",
   keys = {
     {
-      "<leader>/",
+      "<leader>sr",
       function()
         require("utils.window").toggle_panel(function()
           require("spectre").toggle()

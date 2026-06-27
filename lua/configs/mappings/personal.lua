@@ -88,8 +88,24 @@ end, { desc = "Diagnostics to loclist" })
 --------------------------------------------------------
 -- File explorer (nvim-tree)
 --------------------------------------------------------
-map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
-map("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
+local function safe_tree_toggle()
+  local ok, api = pcall(require, "nvim-tree.api")
+  if not ok then
+    vim.cmd("NvimTreeToggle")
+    return
+  end
+  -- Close existing tree buffer if it exists but is in a broken state
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    local name = vim.api.nvim_buf_get_name(buf)
+    if name:match("NvimTree_") and not api.tree.is_visible() then
+      pcall(vim.api.nvim_buf_delete, buf, { force = true })
+    end
+  end
+  api.tree.toggle()
+end
+
+map("n", "<leader>e", safe_tree_toggle, { desc = "Toggle file explorer" })
+map("n", "<leader>ee", safe_tree_toggle, { desc = "Toggle file explorer" })
 map("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Find file in explorer" })
 map("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse explorer" })
 map("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh explorer" })
@@ -139,12 +155,17 @@ map("n", "<leader>lm", "<cmd>Mason<CR>", { desc = "Open Mason" })
 
 --------------------------------------------------------
 -- Terminal (using nvchad term to match new config)
--- NOTE: <leader>tt conflicts with ToggleBool in plugin.lua
--- Old <leader>tt is now <leader>tT to avoid conflict
+-- NOTE: Overrides <leader>tt (ToggleBool) - use <leader>tB for that instead
 --------------------------------------------------------
-map("n", "<leader>tT", function()
+map({ "n", "t" }, "<leader>tt", function()
   require("nvchad.term").toggle({ pos = "float", id = "personal_term" })
-end, { desc = "Toggle terminal (personal)" })
+end, { desc = "Toggle floating terminal" })
+map("n", "<leader>th", function()
+  require("nvchad.term").toggle({ pos = "sp", id = "personal_term_h", size = 0.3 })
+end, { desc = "Toggle horizontal terminal" })
+map("n", "<leader>tv", function()
+  require("nvchad.term").toggle({ pos = "vsp", id = "personal_term_v", size = 0.4 })
+end, { desc = "Toggle vertical terminal" })
 map("t", "<C-h>", "<C-\\><C-n><C-w>h", { desc = "Terminal: window left" })
 map("t", "<C-j>", "<C-\\><C-n><C-w>j", { desc = "Terminal: window down" })
 map("t", "<C-k>", "<C-\\><C-n><C-w>k", { desc = "Terminal: window up" })

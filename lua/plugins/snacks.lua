@@ -52,8 +52,15 @@ return {
         gh_issue = {},
         gh_pr = {},
 
-        files = { hidden = true, ignored = false },
-        grep = { hidden = true },
+        files = {
+          hidden = true,
+          ignored = false,
+          exclude = { "assets", "node_modules", ".cache", "__pycache__", ".obsidian", ".git" },
+        },
+        grep = {
+          hidden = true,
+          exclude = { "assets", "node_modules", ".cache", "__pycache__", ".obsidian", ".git" },
+        },
       },
 
       win = {

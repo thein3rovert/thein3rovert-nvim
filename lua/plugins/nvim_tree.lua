@@ -6,7 +6,7 @@ return {
       filters = {
         dotfiles = false,
         git_ignored = false,
-        custom = {},
+        custom = { "assets", "node_modules", ".cache", "__pycache__", ".obsidian" },
       },
       disable_netrw = true,
       hijack_cursor = true,
@@ -62,7 +62,7 @@ return {
         local map = vim.keymap.set
         local api = require("nvim-tree.api")
 
-        api.map.on_attach.default(bufnr)
+        api.config.mappings.default_on_attach(bufnr)
 
         vim.keymap.set("n", "r", function()
           local node = api.tree.get_node_under_cursor()

@@ -212,7 +212,7 @@ end, { desc = "Format & Autofix File" })
 
 --------------------------------------------------------
 -- Toggle
-map("n", "<leader>tt", "<CMD>ToggleBool<CR>", { desc = "Toggle Boolean" })
+map("n", "<leader>tB", "<CMD>ToggleBool<CR>", { desc = "Toggle Boolean" })
 
 map("n", "<leader>tw", function()
   vim.wo.wrap = not vim.wo.wrap

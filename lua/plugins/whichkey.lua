@@ -19,6 +19,8 @@ return {
       { "<leader>d", group = "DAP", icon = "" },
       { "<leader>p", group = "Plugin", icon = "󰍹" },
       { "<leader>t", group = "Toggle", icon = "" },
+      { "<leader>w", group = "Window", icon = "" },
+      { "<leader>b", group = "Buffer", icon = "󰓩" },
 
       -- I dont use f and t anyway
       { "t", group = "Tabs", icon = "" },
