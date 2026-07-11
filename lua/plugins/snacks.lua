@@ -52,6 +52,11 @@ return {
         gh_issue = {},
         gh_pr = {},
 
+        buffers = {
+          sort_mru = true,
+          current = false,
+        },
+
         files = {
           hidden = true,
           ignored = false,
@@ -169,7 +174,7 @@ return {
     {
       "fb",
       function()
-        Snacks.picker.buffers()
+        Snacks.picker.buffers({ sort_mru = true })
       end,
       desc = "Buffers (Snacks)",
     },
@@ -237,7 +242,7 @@ return {
     {
       "<leader>fb",
       function()
-        Snacks.picker.buffers()
+        Snacks.picker.buffers({ sort_mru = true })
       end,
       desc = "Buffers (Snacks)",
     },
