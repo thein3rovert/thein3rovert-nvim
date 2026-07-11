@@ -11,7 +11,7 @@ M.lsp_list = {
   "jsonls",
   "yamlls",
   -- "markdown_oxide",
-  "marksman",
+  -- "marksman", -- disabled: triggers neovim lsp _changetracking nil buf_state bug (fixed in nvim 0.12.4)
   -- "eslint",
   -- "ts_ls",
   -- "vtsls",

@@ -61,7 +61,7 @@ o.showbreak = " "
 -- Indentation
 o.expandtab = true
 o.shiftwidth = 2
-o.smartindent = true
+o.smartindent = false
 o.autoindent = true
 o.tabstop = 2
 o.softtabstop = 2

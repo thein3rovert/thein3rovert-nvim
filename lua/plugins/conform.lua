@@ -23,6 +23,7 @@ return {
       xml = { "lemminx" },
       java = { "google-java-format" },
       go = { "gofmt" },
+      nix = { "nixfmt" },
 
       ["_"] = { "trim_whitespace" },
     },
