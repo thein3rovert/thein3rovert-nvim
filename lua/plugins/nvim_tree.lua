@@ -1,6 +1,16 @@
 return {
   "nvim-tree/nvim-tree.lua",
   cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+  init = function()
+    -- Track the last window before opening nvim-tree
+    vim.api.nvim_create_autocmd("BufEnter", {
+      callback = function()
+        if vim.bo.filetype ~= "NvimTree" then
+          vim.g.nvim_tree_last_window = vim.api.nvim_get_current_win()
+        end
+      end,
+    })
+  end,
   opts = function()
     return {
       filters = {
@@ -23,7 +33,18 @@ return {
 
       actions = {
         open_file = {
-          quit_on_open = true,
+          quit_on_open = false,
+          window_picker = {
+            enable = true,
+            picker = function()
+              -- Use the last window we were in
+              local last_win = vim.g.nvim_tree_last_window
+              if last_win and vim.api.nvim_win_is_valid(last_win) then
+                return last_win
+              end
+              return vim.api.nvim_get_current_win()
+            end,
+          },
         },
       },
 
