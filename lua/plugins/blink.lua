@@ -53,7 +53,7 @@ return {
           list = {
             selection = {
               auto_insert = false,
-              preselect = false,
+              preselect = true,
             },
           },
 
@@ -95,6 +95,8 @@ return {
 
         keymap = {
           preset = "none",
+          ["<Up>"] = { "select_prev", "fallback" },
+          ["<Down>"] = { "select_next", "fallback" },
           ["<C-Up>"] = { "select_prev", "fallback" },
           ["<C-Down>"] = { "select_next", "fallback" },
 
