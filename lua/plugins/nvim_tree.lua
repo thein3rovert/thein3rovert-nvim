@@ -68,13 +68,27 @@ return {
       renderer = {
         group_empty = true,
         root_folder_label = false,
-        highlight_git = "none",
+        highlight_git = "icon",
         indent_markers = { enable = true },
         icons = {
           git_placement = "after",
-
+          show = {
+            git = true,
+            folder = true,
+            file = true,
+            folder_arrow = true,
+          },
           glyphs = {
             default = "󰈚",
+            git = {
+              unstaged = "M",
+              staged = "S",
+              unmerged = "",
+              renamed = "R",
+              untracked = "U",
+              deleted = "D",
+              ignored = "",
+            },
           },
         },
       },
