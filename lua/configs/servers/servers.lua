@@ -2,6 +2,7 @@ local M = {}
 
 M.non_mason_lsp_list = {
   -- "qml-language-server",
+  "nixd", -- Not available in Mason (installed via Nix)
 }
 
 M.lsp_list = {
@@ -35,7 +36,7 @@ M.lsp_list = {
 
   -- "qmlls",
   "taplo",
-  "nixd", -- Better Nix LSP (was nil_ls)
+  -- "nixd", -- Moved to non_mason_lsp_list (not available in Mason)
   -- "nil_ls", -- Commented out in favor of nixd
   "lua_ls",
   "pyright",
