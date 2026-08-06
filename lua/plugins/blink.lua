@@ -34,9 +34,11 @@ return {
     },
 
     opts = function()
-      local nv_blink = require("nvchad.blink.config")
+      -- NvChad blink config (commented out)
+      -- local nv_blink = require("nvchad.blink.config")
+      -- return vim.tbl_deep_extend("force", nv_blink, {
 
-      return vim.tbl_deep_extend("force", nv_blink, {
+      return {
         completion = {
           documentation = {
             auto_show = true,
@@ -138,7 +140,13 @@ return {
             path = { score_offset = -2, min_keyword_length = 2 },
           },
         },
-      })
+        
+        appearance = {
+          use_nvim_cmp_as_default = true,
+          nerd_font_variant = 'mono'
+        },
+      }
+      -- }) -- End of NvChad config
     end,
   },
 }

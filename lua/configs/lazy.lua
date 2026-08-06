@@ -1,6 +1,6 @@
 return {
   defaults = { lazy = true },
-  install = { colorscheme = { "nvchad" } },
+  install = { colorscheme = { "onedark" } }, -- Changed from "nvchad" to "onedark"
 
   dev = {
     path = "/home/r4ppz/Repositories/nvplug/",

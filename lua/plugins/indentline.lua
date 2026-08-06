@@ -8,7 +8,7 @@ return {
     indent = {
       char = "▏",
       tab_char = "▏",
-      highlight = "IblChar",
+      -- highlight = "IblChar", -- Removed NvChad highlight
       smart_indent_cap = true,
       priority = 1,
       repeat_linebreak = true,
@@ -21,12 +21,12 @@ return {
       show_end = false,
       show_exact_scope = false,
       injected_languages = false,
-      highlight = "IblScopeChar",
+      -- highlight = "IblScopeChar", -- Removed NvChad highlight
       priority = 1024,
     },
 
     whitespace = {
-      highlight = "IblWhitespace",
+      -- highlight = "IblWhitespace", -- Removed NvChad highlight
       remove_blankline_trail = true,
     },
 

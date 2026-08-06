@@ -1,5 +1,5 @@
 -- I am not a real vim user
-vim.g.base46_cache = vim.fn.stdpath("data") .. "/base46/"
+-- vim.g.base46_cache = vim.fn.stdpath("data") .. "/base46/" -- NvChad base46 cache (disabled)
 vim.g.mapleader = " "
 
 -- bootstrap lazy
@@ -17,10 +17,15 @@ require("lazy").setup({
   { import = "plugins" },
 }, require("configs.lazy"))
 
--- load theme
-for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
-  dofile(vim.g.base46_cache .. v)
-end
+-- load theme (NvChad base46 - disabled in favor of standalone onedark)
+-- for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
+--   dofile(vim.g.base46_cache .. v)
+-- end
+--
+-- -- Override with onedark colorscheme after base46 loads
+-- vim.schedule(function()
+--   require("onedark").load()
+-- end)
 
 require("configs.options")
 require("configs.cmds")
