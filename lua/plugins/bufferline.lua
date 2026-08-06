@@ -34,9 +34,24 @@ return {
     -- Buffer management (using bufdelete to keep window open)
     keymap.set("n", "<leader>bd", "<cmd>Bdelete<cr>", { desc = "Delete buffer" })
     keymap.set("n", "<leader>bD", "<cmd>Bdelete!<cr>", { desc = "Force delete buffer" })
-    keymap.set("n", "<leader>bo", "<cmd>BufferLineCloseOthers<cr>", { desc = "Close other buffers" })
-    keymap.set("n", "<leader>bl", "<cmd>BufferLineCloseLeft<cr>", { desc = "Close buffers to the left" })
-    keymap.set("n", "<leader>br", "<cmd>BufferLineCloseRight<cr>", { desc = "Close buffers to the right" })
+    keymap.set(
+      "n",
+      "<leader>bo",
+      "<cmd>BufferLineCloseOthers<cr>",
+      { desc = "Close other buffers" }
+    )
+    keymap.set(
+      "n",
+      "<leader>bl",
+      "<cmd>BufferLineCloseLeft<cr>",
+      { desc = "Close buffers to the left" }
+    )
+    keymap.set(
+      "n",
+      "<leader>br",
+      "<cmd>BufferLineCloseRight<cr>",
+      { desc = "Close buffers to the right" }
+    )
     keymap.set("n", "<leader>bp", "<cmd>BufferLineTogglePin<cr>", { desc = "Pin buffer" })
 
     -- Move buffers
