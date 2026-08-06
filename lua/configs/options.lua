@@ -66,6 +66,10 @@ o.autoindent = true
 o.tabstop = 2
 o.softtabstop = 2
 
+-- Comment continuation (auto-add comment symbol on Enter)
+opt.formatoptions:append("r") -- Auto-insert comment leader after Enter in insert mode
+opt.formatoptions:append("o") -- Auto-insert comment leader after 'o' or 'O' in normal mode
+
 -- Search
 o.ignorecase = true
 o.smartcase = true

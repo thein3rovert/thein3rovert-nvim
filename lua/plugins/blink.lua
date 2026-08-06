@@ -18,10 +18,35 @@ return {
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
-    opts = {
-      fast_wrap = {},
-      disable_filetype = { "TelescopePrompt", "vim" },
-    },
+    config = function()
+      local autopairs = require("nvim-autopairs")
+      
+      -- configure autopairs (from main branch)
+      autopairs.setup({
+        check_ts = true, -- enable treesitter
+        ts_config = {
+          lua = { "string" }, -- don't add pairs in lua string treesitter nodes
+          javascript = { "template_string" },
+          java = false,
+        },
+        fast_wrap = {},
+        disable_filetype = { "TelescopePrompt", "vim" },
+      })
+
+      -- Markdown checkbox spacing: [ -> [ ] (commented out - user doesn't like it)
+      -- local Rule = require("nvim-autopairs.rule")
+      -- autopairs.add_rules({
+      --   Rule("[", " ]", "markdown")
+      --     :with_pair(function(opts)
+      --       -- Only in markdown files at start of line or after whitespace
+      --       local line = opts.line
+      --       local col = opts.col
+      --       if col == 1 then return true end
+      --       local char_before = line:sub(col - 1, col - 1)
+      --       return char_before:match("%s")
+      --     end),
+      -- })
+    end,
   },
 
   {
