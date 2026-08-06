@@ -1,5 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
+  lazy = false, -- Load immediately
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     local lualine = require("lualine")

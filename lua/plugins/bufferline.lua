@@ -1,5 +1,6 @@
 return {
   "akinsho/bufferline.nvim",
+  lazy = false, -- Load immediately to show buffer tabs
   dependencies = {
     "nvim-tree/nvim-web-devicons",
     "famiu/bufdelete.nvim", -- Better buffer deletion
