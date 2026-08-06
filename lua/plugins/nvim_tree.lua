@@ -50,7 +50,9 @@ return {
 
       git = {
         enable = true,
-        show_on_dirs = true,
+        ignore = true, -- Respect .gitignore (from main)
+        timeout = 400,
+        -- show_on_dirs = true, -- Original experimental config
       },
 
       diagnostics = {
@@ -68,7 +70,8 @@ return {
       renderer = {
         group_empty = true,
         root_folder_label = false,
-        highlight_git = "icon",
+        highlight_git = "name", -- From main (was "icon" in experimental)
+        -- highlight_git = "icon", -- Original experimental config
         indent_markers = { enable = true },
         icons = {
           git_placement = "after",
@@ -81,13 +84,23 @@ return {
           glyphs = {
             default = "󰈚",
             git = {
-              unstaged = "M",
-              staged = "S",
+              -- Icon symbols from main branch
+              unstaged = "●",
+              staged = "✓",
               unmerged = "",
-              renamed = "R",
-              untracked = "U",
-              deleted = "D",
-              ignored = "",
+              renamed = "➜",
+              untracked = "★",
+              deleted = "✗",
+              ignored = "◌",
+              
+              -- Letter symbols from experimental (commented out)
+              -- unstaged = "M",
+              -- staged = "S",
+              -- unmerged = "",
+              -- renamed = "R",
+              -- untracked = "U",
+              -- deleted = "D",
+              -- ignored = "",
             },
           },
         },
