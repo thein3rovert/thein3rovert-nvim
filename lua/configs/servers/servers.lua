@@ -35,7 +35,8 @@ M.lsp_list = {
 
   -- "qmlls",
   "taplo",
-  "nil_ls",
+  "nixd", -- Better Nix LSP (was nil_ls)
+  -- "nil_ls", -- Commented out in favor of nixd
   "lua_ls",
   "pyright",
   "bashls",
