@@ -11,6 +11,7 @@ return {
       mode = "buffers",
       diagnostics = "nvim_lsp",
       always_show_bufferline = true,
+      separator_style = "thin", -- Makes separators less intrusive
       offsets = {
         {
           filetype = "NvimTree",
@@ -18,6 +19,14 @@ return {
           highlight = "Directory",
           separator = true,
         },
+      },
+    },
+    highlights = {
+      fill = {
+        bg = "NONE", -- Transparent background
+      },
+      background = {
+        bg = "NONE",
       },
     },
   },
