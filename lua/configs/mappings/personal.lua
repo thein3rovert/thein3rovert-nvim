@@ -24,24 +24,25 @@ map("n", "N", "Nzzzv", { desc = "Prev search match (centered)" })
 -- <C-d>/<C-u> centered scroll already in custom.lua
 
 --------------------------------------------------------
--- Buffers
+-- Buffers (commented out - using bufferline keymaps instead)
 --------------------------------------------------------
-map("n", "<S-l>", ":bnext<CR>", { desc = "Next buffer" })
-map("n", "<S-h>", ":bprevious<CR>", { desc = "Previous buffer" })
+-- map("n", "<S-l>", ":bnext<CR>", { desc = "Next buffer" })
+-- map("n", "<S-h>", ":bprevious<CR>", { desc = "Previous buffer" })
 map("n", "<leader>,", function()
   Snacks.picker.buffers({ sort_mru = true, current = false })
 end, { desc = "Buffer picker" })
 map("n", "<leader>fb", function()
   Snacks.picker.buffers({ sort_mru = true, current = false })
 end, { desc = "Find buffers" })
-map("n", "<leader>bd", function()
-  require("utils.window").safe_buf_action(function()
-    require("nvchad.tabufline").close_buffer()
-  end)()
-end, { desc = "Close buffer" })
-map("n", "<leader>bo", ":%bd|e#|bd#<cr>", { desc = "Close other buffers" })
-map("n", "<leader>bh", ":%bd|e#<cr>", { desc = "Close hidden buffers" })
-map("n", "<leader>bl", ":%bd|e#<cr>", { desc = "Close hidden buffers (alt)" })
+-- Buffer close/management keymaps are in bufferline.lua
+-- map("n", "<leader>bd", function()
+--   require("utils.window").safe_buf_action(function()
+--     require("nvchad.tabufline").close_buffer()
+--   end)()
+-- end, { desc = "Close buffer" })
+-- map("n", "<leader>bo", ":%bd|e#|bd#<cr>", { desc = "Close other buffers" })
+-- map("n", "<leader>bh", ":%bd|e#<cr>", { desc = "Close hidden buffers" })
+-- map("n", "<leader>bl", ":%bd|e#<cr>", { desc = "Close hidden buffers (alt)" })
 
 --------------------------------------------------------
 -- Quickfix
