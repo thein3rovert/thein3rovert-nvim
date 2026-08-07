@@ -159,18 +159,20 @@ map("n", "<leader>R", "<cmd>source ~/.config/nvim/init.lua<CR>", { desc = "Reloa
 map("n", "<leader>lm", "<cmd>Mason<CR>", { desc = "Open Mason" })
 
 --------------------------------------------------------
--- Terminal (using nvchad term to match new config)
--- NOTE: Overrides <leader>tt (ToggleBool) - use <leader>tB for that instead
+-- Terminal (commented out - NvChad terminal no longer available)
+-- Use toggleterm or snacks terminal instead
 --------------------------------------------------------
-map({ "n", "t" }, "<leader>tt", function()
-  require("nvchad.term").toggle({ pos = "float", id = "personal_term" })
-end, { desc = "Toggle floating terminal" })
-map("n", "<leader>th", function()
-  require("nvchad.term").toggle({ pos = "sp", id = "personal_term_h", size = 0.3 })
-end, { desc = "Toggle horizontal terminal" })
-map("n", "<leader>tv", function()
-  require("nvchad.term").toggle({ pos = "vsp", id = "personal_term_v", size = 0.4 })
-end, { desc = "Toggle vertical terminal" })
+-- map({ "n", "t" }, "<leader>tt", function()
+--   require("nvchad.term").toggle({ pos = "float", id = "personal_term" })
+-- end, { desc = "Toggle floating terminal" })
+-- map("n", "<leader>th", function()
+--   require("nvchad.term").toggle({ pos = "sp", id = "personal_term_h", size = 0.3 })
+-- end, { desc = "Toggle horizontal terminal" })
+-- map("n", "<leader>tv", function()
+--   require("nvchad.term").toggle({ pos = "vsp", id = "personal_term_v", size = 0.4 })
+-- end, { desc = "Toggle vertical terminal" })
+
+-- Terminal navigation (keep these)
 map("t", "<C-h>", "<C-\\><C-n><C-w>h", { desc = "Terminal: window left" })
 map("t", "<C-j>", "<C-\\><C-n><C-w>j", { desc = "Terminal: window down" })
 map("t", "<C-k>", "<C-\\><C-n><C-w>k", { desc = "Terminal: window up" })
