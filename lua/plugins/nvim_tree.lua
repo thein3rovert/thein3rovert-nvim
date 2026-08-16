@@ -51,8 +51,9 @@ return {
       git = {
         enable = true,
         ignore = true, -- Respect .gitignore (from main)
+        show_on_dirs = false, -- Don't show git status on parent directories
+        show_on_open_dirs = false, -- Don't show git status on open directories
         timeout = 400,
-        -- show_on_dirs = true, -- Original experimental config
       },
 
       diagnostics = {
@@ -70,8 +71,7 @@ return {
       renderer = {
         group_empty = true,
         root_folder_label = false,
-        highlight_git = "icon", -- Only highlight git icon, not filename
-        -- highlight_git = "name", -- From main - highlights entire filename (commented out)
+        highlight_git = "name", -- Highlight filename for files with changes
         indent_markers = { enable = true },
         icons = {
           git_placement = "after",
