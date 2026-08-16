@@ -49,7 +49,7 @@ return {
       },
 
       git = {
-        enable = false, -- Temporarily disable to test if this is the issue
+        enable = true, -- Re-enabled (wasn't the issue)
         ignore = true, -- Respect .gitignore (from main)
         show_on_dirs = true, -- Show git status on directories
         timeout = 400,
