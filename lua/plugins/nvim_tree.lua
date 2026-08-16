@@ -70,8 +70,8 @@ return {
       renderer = {
         group_empty = true,
         root_folder_label = false,
-        highlight_git = "name", -- From main (was "icon" in experimental)
-        -- highlight_git = "icon", -- Original experimental config
+        highlight_git = "icon", -- Only highlight git icon, not filename
+        -- highlight_git = "name", -- From main - highlights entire filename (commented out)
         indent_markers = { enable = true },
         icons = {
           git_placement = "after",
