@@ -49,10 +49,9 @@ return {
       },
 
       git = {
-        enable = true,
+        enable = false, -- Temporarily disable to test if this is the issue
         ignore = true, -- Respect .gitignore (from main)
-        show_on_dirs = false, -- Don't show git status on parent directories
-        show_on_open_dirs = false, -- Don't show git status on open directories
+        show_on_dirs = true, -- Show git status on directories
         timeout = 400,
       },
 
@@ -72,6 +71,9 @@ return {
         group_empty = true,
         root_folder_label = false,
         highlight_git = "name", -- Highlight filename for git changes
+        highlight_opened_files = "none", -- Don't highlight opened files
+        highlight_modified = "none", -- Don't highlight modified files  
+        special_files = {}, -- Don't highlight special/executable files
         indent_markers = { enable = true },
         icons = {
           git_placement = "after",
