@@ -71,7 +71,7 @@ return {
       renderer = {
         group_empty = true,
         root_folder_label = false,
-        highlight_git = "name", -- Highlight filename for files with changes
+        highlight_git = "name", -- Highlight filename for git changes
         indent_markers = { enable = true },
         icons = {
           git_placement = "after",
