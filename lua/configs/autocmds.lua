@@ -29,6 +29,15 @@ autocmd({
   end,
 })
 
+-- Notify when external file changes are detected
+autocmd("FileChangedShellPost", {
+  group = mygroup,
+  desc = "Notify when file changes externally",
+  callback = function()
+    vim.notify("File changed on disk. Buffer reloaded.", vim.log.levels.INFO)
+  end,
+})
+
 autocmd({ "FileType", "BufEnter" }, {
   group = mygroup,
   pattern = { "copilot-chat", "spectre_panel" },

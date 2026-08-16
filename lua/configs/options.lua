@@ -79,7 +79,7 @@ o.mouse = "a"
 opt.mousemodel = "extend"
 
 -- Performance
-o.updatetime = 300
+o.updatetime = 100 -- Faster file reload (was 300ms)
 
 o.fdo = "search,tag,insert,undo"
 o.synmaxcol = 200
